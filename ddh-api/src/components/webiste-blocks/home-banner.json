@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_webiste_blocks_home_banners",
+  "info": {
+    "displayName": "Home Banner",
+    "icon": "image"
+  },
+  "options": {},
+  "attributes": {
+    "homePageImg": {
+      "allowedTypes": [
+        "images",
+        "videos"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "title": {
+      "type": "string"
+    }
+  }
+}

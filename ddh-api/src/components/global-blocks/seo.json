@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_global_blocks_seos",
+  "info": {
+    "displayName": "SEO",
+    "icon": "globe"
+  },
+  "options": {},
+  "attributes": {
+    "metaTitle": {
+      "type": "string"
+    },
+    "metaDescription": {
+      "type": "text"
+    },
+    "metaKeywords": {
+      "type": "string"
+    },
+    "metaImage": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
