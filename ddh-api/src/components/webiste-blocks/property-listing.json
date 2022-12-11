@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_webiste_blocks_property_listings",
+  "info": {
+    "displayName": "Property Listing",
+    "icon": "archway"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "Property": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.property-card"
+    },
+    "cardStyle": {
+      "type": "enumeration",
+      "enum": [
+        "Duo Card",
+        "Trio Card",
+        "Quadro Card"
+      ],
+      "required": true,
+      "default": "Quadro Card"
+    }
+  }
+}

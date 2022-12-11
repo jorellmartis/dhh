@@ -1,5 +1,5 @@
 import { gql } from "@apollo/client"
-import { ComponentWebisteBlocksHomeBanner } from "./fragments/blocks"
+import { ComponentWebisteBlocksHomeBanner , ComponentWebisteBlocksPropertyListing } from "./fragments/blocks"
 
 export const GET_PARENT_PAGES = gql`
     query ParentPages($slug: String){
@@ -13,6 +13,7 @@ export const GET_PARENT_PAGES = gql`
             title
             blocks{
                 ${ComponentWebisteBlocksHomeBanner}
+                ${ComponentWebisteBlocksPropertyListing}
             }
             }
         }

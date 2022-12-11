@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "list_locations",
+  "info": {
+    "singularName": "list-location",
+    "pluralName": "list-locations",
+    "displayName": "List - Location"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "location": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "location"
+    },
+    "Property": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::pages-property.pages-property",
+      "mappedBy": "Location"
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pages_properties",
+  "info": {
+    "singularName": "pages-property",
+    "pluralName": "pages-properties",
+    "displayName": "Pages - Property",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "imgThumb": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Location": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::list-location.list-location",
+      "inversedBy": "Property"
+    },
+    "price": {
+      "type": "string"
+    }
+  }
+}

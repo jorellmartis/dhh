@@ -2,24 +2,19 @@ import Head from 'next/head'
 import FullBlockRender from '../components/FullBlockRenderer'
 import apolloClient from '../helpers/apollo'
 import { GET_PARENT_PAGES } from '../queries/parentPage'
-import { NextPage } from 'next'
 import { imageType } from '../typings/typings'
+import { AllHomeBlocksType } from '../typings/typings'
 
-export type homeBlocksTyping = {
-    blocks: Array<{
-    __typename?: string;
-    homePageImg? : imageType
-    title?: string
-  }>
-}
-export type PageDataProp = {
+
+type PageDataProp = {
   pageData: {
       title: string;
-      blocks: homeBlocksTyping
+      blocks: Array<AllHomeBlocksType> 
     }
   }
 
   const index = ({pageData}:PageDataProp) => {
+    console.log(pageData,"index")
     return (
       <>
       <Head>

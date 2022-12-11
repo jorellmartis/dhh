@@ -4,7 +4,8 @@
   "info": {
     "singularName": "pages-sitemap",
     "pluralName": "pages-sitemaps",
-    "displayName": "Pages - Sitemap"
+    "displayName": "Pages - Sitemap",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -35,7 +36,8 @@
     "blocks": {
       "type": "dynamiczone",
       "components": [
-        "webiste-blocks.home-banner"
+        "webiste-blocks.home-banner",
+        "webiste-blocks.property-listing"
       ]
     }
   }

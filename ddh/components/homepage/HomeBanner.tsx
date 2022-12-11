@@ -1,11 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Typography } from '../Typography'
+import { HomeBannerType } from '../../typings/typings'
+import { getStrapiMedia } from '../../helpers/strapi'
 
+type HomeBannerCompType = {
+    homeBannerData? : HomeBannerType
+}
 const HomeBannerBlock = styled.div`
     display: flex;
     width: 100vw;
-    height: 70vh;
+    height: 95vh;
     padding-top: 80px;
     background: linear-gradient(180deg,#ececec,#f7f3f3);
     justify-content: center;
@@ -37,13 +42,13 @@ const BannerSearchItem = styled.div`
     background: red;
 `
 
-const HomeBanner = () => {
+const HomeBanner = ({homeBannerData}: HomeBannerCompType ) => {
     return (
         <HomeBannerBlock>
-            <video autoPlay muted loop style={{ width: '100%', height: '100%' }} src="/bannerVideo.mp4"/>
+            <video autoPlay muted loop style={{ width: '100%', height: '100%' }} src={getStrapiMedia(homeBannerData?.homePageImg)}/>
             <HomeBannerContent>
                 <Typography level={1} fontFamily='pacifico'>
-                    <h1>Book the coziest places in Dubai</h1>
+                    <h1>{homeBannerData?.title}</h1>
                 </Typography>
                 <BannerSearch>
                     <BannerSearchItem>

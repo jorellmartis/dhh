@@ -1,15 +1,24 @@
 import React from "react";
-import { homeBlocksTyping } from "../pages";
-import ComponentWebisteBlocksHomeBanner from './blocks/ComponentWebisteBlocksHomeBanner'
+import ComponentWebisteBlocksHomeBanner from './blocks/homepage/ComponentWebisteBlocksHomeBanner'
+import ComponentWebisteBlocksPropertyListing from "./blocks/homepage/ComponentWebisteBlocksPropertyListing";
+import {AllHomeBlocksType} from '../typings/typings'
 
+type AllComponentBlockType = {
+    blocks: Array<AllHomeBlocksType>
+}
 
-
-const FullBlockRender  = ({blocks}: homeBlocksTyping ) => {
-
+const FullBlockRender  = ({blocks} :AllComponentBlockType ) => {
+    // console.log(blocks[1].__typename,"please please work")
     const getComponent = (block , index: number ) => {
         switch (block.__typename) {
             case "ComponentWebisteBlocksHomeBanner":
                 return <ComponentWebisteBlocksHomeBanner 
+                compBlockData = {block}
+                key = {`section-block-${index}`}
+                />
+                break;
+            case "ComponentWebisteBlocksPropertyListing":
+                return <ComponentWebisteBlocksPropertyListing 
                 compBlockData = {block}
                 key = {`section-block-${index}`}
                 />
@@ -19,9 +28,11 @@ const FullBlockRender  = ({blocks}: homeBlocksTyping ) => {
         }
 
     }
-    return <>{blocks?.map(( block , index : number) => 
-        getComponent(block, index)
-        )}</>
+    return <>
+        {blocks?.map(( block , index : number) => 
+        getComponent( block, index)
+        )}
+        </>
 }
 
 export default FullBlockRender
