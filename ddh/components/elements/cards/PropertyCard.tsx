@@ -20,9 +20,9 @@ margin-right: 2%;
 `
 
 const PropertyCard = ({propertyCardData}: PropertyCardCompType) => {
-  console.log(getStrapiMedia(propertyCardData?.pages_property?.data?.attributes?.imgThumb))
   return (
     <PropertyCardElem>
+    <div>
     <Image 
     style={{position: 'relative' , width:'100%', height:'100%'}}
     width = {318}
@@ -31,9 +31,9 @@ const PropertyCard = ({propertyCardData}: PropertyCardCompType) => {
     src={'/CardImage.jpg'} 
     alt={`Property Image`}
     objectFit='contain'
-    loading='lazy'/>
-    <h3>{propertyCardData?.pages_property?.data?.attributes?.title}</h3>
-    <h4>{propertyCardData?.pages_property?.data?.attributes?.Location?.data?.attributes?.location}</h4>
+    loading='lazy'/></div>
+    <span>{propertyCardData?.pages_property?.data?.attributes?.title}</span>
+    <span>{propertyCardData?.pages_property?.data?.attributes?.Location?.data?.attributes?.location}</span>
     <span>From <b>{propertyCardData?.pages_property?.data?.attributes?.price}</b> per night</span>
     <span>Ratings</span>
 

@@ -3,18 +3,11 @@ import FullBlockRender from '../components/FullBlockRenderer'
 import apolloClient from '../helpers/apollo'
 import { GET_PARENT_PAGES } from '../queries/parentPage'
 import { imageType } from '../typings/typings'
-import { AllHomeBlocksType } from '../typings/typings'
+import { PageDataProp} from '../typings/typings'
+import {stackData} from '../helpers/commonReq'
 
-
-type PageDataProp = {
-  pageData: {
-      title: string;
-      blocks: Array<AllHomeBlocksType> 
-    }
-  }
-
-  const index = ({pageData}:PageDataProp) => {
-    console.log(pageData,"index")
+  const index = ({pageData, headerData}: PageDataProp ) => {
+    console.log(headerData,"index head")
     return (
       <>
       <Head>
@@ -41,11 +34,13 @@ export const getStaticProps = async () => {
   }
   catch (error) {
     console.log(error);
-    
   }
+  const commonData = await stackData();
+  console.log(commonData,"stackieeeee")
   return{
     props: {
-      pageData
+      pageData,
+      headerData: commonData?.headerData
     }
   }
 }

@@ -10,7 +10,7 @@ type HomeBannerCompType = {
 const HomeBannerBlock = styled.div`
     display: flex;
     width: 100vw;
-    height: 95vh;
+    height: 50vw;
     padding-top: 80px;
     background: linear-gradient(180deg,#ececec,#f7f3f3);
     justify-content: center;

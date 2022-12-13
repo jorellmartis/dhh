@@ -19,7 +19,7 @@ const PropertyListingBlock = styled.div`
 const PropertyListing = ({propertyListingData}: PropertyListCompType) => {
   return (
     <>
-    <div style={{padding:'2% 5%'}}>
+    <div style={{padding:'20px 36px', maxWidth:'1440px', margin:'auto'}}>
     <h2>{propertyListingData?.title}</h2>
     <PropertyListingBlock>
       {propertyListingData?.Property?.map((property ,index) =>(
@@ -29,6 +29,8 @@ const PropertyListing = ({propertyListingData}: PropertyListCompType) => {
         />
       ))}
         <PropertyCard/>
+        <PropertyCard/>
+
     </PropertyListingBlock>
     </div>
     </>

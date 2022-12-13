@@ -29,3 +29,21 @@ export const ComponentWebisteBlocksPropertyListing = `
   }
 }
 `
+export const ComponentNavigationListOfLinks =`
+...on ComponentNavigationListOfLinks{
+  __typename
+  listOfLinks{
+  id
+  enableUrlName
+  urlName
+  pages_sitemap{
+      data{
+      attributes{
+          title
+          slug
+      }
+      }
+  }
+  }
+}
+`
