@@ -17,6 +17,7 @@ const PropertyListingBlock = styled.div`
     flex-wrap: wrap;
 `
 const PropertyListing = ({propertyListingData}: PropertyListCompType) => {
+  console.log(propertyListingData,"==>Listing Data")
   return (
     <>
     <div style={{padding:'20px 36px', maxWidth:'1440px', margin:'auto'}}>

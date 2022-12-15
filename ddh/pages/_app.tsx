@@ -9,16 +9,15 @@ export const AppContext = createContext({});
 export default function App({ Component, pageProps }: AppProps ) 
 {
   const globalConfig = {
-    headerLinks: pageProps.headerData?.blocks,
+    // headerLinks: pageProps.headerData?.blocks,
   }
-  console.log(globalConfig,"Global")
   return (
     <ThemeProvider theme={myAppTheme}>
     <GlobalStyle/>
     <AppContext.Provider value={globalConfig}>
-      <LayoutMain>
+      {/* <LayoutMain> */}
       <Component {...pageProps} />
-      </LayoutMain>
+      {/* </LayoutMain> */}
     </AppContext.Provider>
     </ThemeProvider>
   )

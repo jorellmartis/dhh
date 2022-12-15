@@ -51,7 +51,6 @@ type context = {
 
 const Header = () => {
     const context : context = useContext(AppContext)
-    console.log(context,"navcontext")
     return (
         <header style={{position: 'absolute' , zIndex:'10', background:'#ffffff'}}>
             <nav>

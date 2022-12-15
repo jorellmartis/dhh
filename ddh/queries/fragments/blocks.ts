@@ -1,6 +1,8 @@
+import { facilityList } from "./facilityList"
 import { imageFragment } from "./imageFragment"
 import { locationFrag } from "./locationFragment"
 
+//PAGES SITEMAP BLOCKS
 export const ComponentWebisteBlocksHomeBanner = `
 ...on ComponentWebisteBlocksHomeBanner{
     __typename
@@ -47,3 +49,54 @@ export const ComponentNavigationListOfLinks =`
   }
 }
 `
+//PAGES PROPERTIES BLOCK
+export const ComponentWebisteBlocksImageGallery = `
+...on ComponentWebisteBlocksImageGallery{
+  __typename
+  swiper{
+    swiperImg{${imageFragment}}
+  }
+}
+`
+export const ComponentWebisteBlocksPropertyDescription = `
+...on ComponentWebisteBlocksPropertyDescription{
+  __typename
+  description
+}
+`
+export const ComponentWebisteBlocksFacilities = `
+...on ComponentWebisteBlocksFacilities{
+  __typename
+  title
+  facility{
+    facilityList{${facilityList}}
+  }
+}
+`
+export const ComponentWebisteBlocksExtraFacility = `
+...on ComponentWebisteBlocksExtraFacility{
+  __typename
+  title
+  extraFacility{
+    facilityExtraList{${facilityList}}
+  }
+}
+`
+export const ComponentWebisteBlocksPropertyRules=`
+...on ComponentWebisteBlocksPropertyRules{
+  __typename
+  propRules{
+    title
+  }
+}
+`
+export const ComponentWebisteBlocksDistrictAndArea = `
+...on ComponentWebisteBlocksDistrictAndArea{
+  __typename
+  title
+  description
+  nearbyAttractions
+}
+`
+
+

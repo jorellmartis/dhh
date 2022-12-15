@@ -7,7 +7,6 @@ import { PageDataProp} from '../typings/typings'
 import {stackData} from '../helpers/commonReq'
 
   const index = ({pageData, headerData}: PageDataProp ) => {
-    console.log(headerData,"index head")
     return (
       <>
       <Head>
@@ -36,7 +35,6 @@ export const getStaticProps = async () => {
     console.log(error);
   }
   const commonData = await stackData();
-  console.log(commonData,"stackieeeee")
   return{
     props: {
       pageData,

@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 import styled from 'styled-components'
 
@@ -49,13 +50,26 @@ const FooterLinks = styled.div`
         li{
             list-style: none;
             width: 50%;
+            text-align: center;
+        }
+    }
+    &:nth-child(3){
+        width: 20%;
+        span{
+            text-align: none;
+        }
+        li{
+            width: 100%;
+        }
+    }
+    &:nth-child(4){
+        width: 10%;
+    }
+    &:nth-child(5){
+        li{
+            width: 100%;
         }
     }   
-`
-const FooterLinks2 = styled.div`
-    display: flex;
-    width: 20%;
-    background: yellow;
 `
 const Footer = () => {
   return (
@@ -67,8 +81,8 @@ const Footer = () => {
             <span>Best Places And Prices</span>
         </FooterLogo>
         <FooterLinks>
+        <span>Driven Holiday Homes</span>
             <ul>
-            <span>Driven Holiday Homes</span>
                 <li>Link 1</li>
                 <li>Link 1</li>
                 <li>Link 1</li>
@@ -79,9 +93,31 @@ const Footer = () => {
                 <li>Link 1</li>
             </ul>
         </FooterLinks>
-        <FooterLinks2>
-            yok
-        </FooterLinks2>
+        <FooterLinks>
+        <span>We're at</span>
+        <ul>
+            <li>Link 1</li>
+        </ul>
+        </FooterLinks>
+        <FooterLinks>
+        <span>Are you a property owner?</span>
+        <Link href={'/'}>
+            <button>List Property</button>
+        </Link>
+        </FooterLinks>
+        <FooterLinks>
+        <span>Follow us?</span>
+            <ul>
+                <li>Instagram</li>
+                <li>Facebook</li>
+            </ul>
+        </FooterLinks>
+        <FooterLinks>
+        <span>Contact Us</span>
+            <ul>
+                <li><Link href={''}>@blabal</Link></li>
+            </ul>
+        </FooterLinks>
     </UpperFooter>
     <LowerFooter>
     Footer Items

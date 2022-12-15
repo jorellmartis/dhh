@@ -12,8 +12,6 @@ import apolloClient from './apollo'
                 }
             });
             headerData = data?.stacks?.data[0].attributes;
-            console.log(headerData,"Stackkkiee")
-
         }
         catch (error) {
             console.log(error);

@@ -8,7 +8,6 @@ type AllComponentBlockType = {
 }
 
 const FullBlockRender  = ({blocks} :AllComponentBlockType ) => {
-    // console.log(blocks[1].__typename,"please please work")
     const getComponent = (block:any , index: number ) => {
         switch (block.__typename) {
             case "ComponentWebisteBlocksHomeBanner":
