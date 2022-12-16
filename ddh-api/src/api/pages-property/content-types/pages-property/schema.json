@@ -38,6 +38,28 @@
     },
     "price": {
       "type": "string"
+    },
+    "blocks": {
+      "type": "dynamiczone",
+      "components": [
+        "webiste-blocks.image-gallery",
+        "webiste-blocks.property-description",
+        "webiste-blocks.facilities",
+        "webiste-blocks.extra-facility",
+        "webiste-blocks.property-rules",
+        "webiste-blocks.district-and-area"
+      ]
+    },
+    "SEO": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global-blocks.seo"
+    },
+    "list_bedroom": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::list-bedroom.list-bedroom",
+      "inversedBy": "pages_properties"
     }
   }
 }

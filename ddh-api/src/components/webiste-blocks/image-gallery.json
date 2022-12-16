@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_webiste_blocks_image_galleries",
+  "info": {
+    "displayName": "Image Gallery",
+    "icon": "images",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "swiper": {
+      "displayName": "swiper-slider",
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.swiper-slider"
+    }
+  }
+}

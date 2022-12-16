@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_navigation_list_of_links",
+  "info": {
+    "displayName": "List Of Links",
+    "icon": "link"
+  },
+  "options": {},
+  "attributes": {
+    "listOfLinks": {
+      "displayName": "Link",
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.link"
+    }
+  }
+}

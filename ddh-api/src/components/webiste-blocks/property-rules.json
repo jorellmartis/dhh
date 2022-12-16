@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_webiste_blocks_property_rules",
+  "info": {
+    "displayName": "Property Rules",
+    "icon": "draw-polygon"
+  },
+  "options": {},
+  "attributes": {
+    "propRules": {
+      "displayName": "Rules",
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.rules"
+    }
+  }
+}

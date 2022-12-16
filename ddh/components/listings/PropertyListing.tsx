@@ -4,7 +4,7 @@ import PropertyCard from '../elements/cards/PropertyCard'
 import {PropertyListType} from '../../typings/typings'
 
 type PropertyListCompType = {
-  propertyListingData? : PropertyListType
+  propertyListingData? : PropertyListType & boolean| null 
 }
 
 const PropertyListingBlock = styled.div`
@@ -23,7 +23,7 @@ const PropertyListing = ({propertyListingData}: PropertyListCompType) => {
     <div style={{padding:'20px 36px', maxWidth:'1440px', margin:'auto'}}>
     <h2>{propertyListingData?.title}</h2>
     <PropertyListingBlock>
-      {propertyListingData?.Property?.map((property ,index) =>(
+      {propertyListingData?.pagesProperties?.map((property ,index) =>(
         <PropertyCard 
         key={`property-id-${new Date().getTime}-${index}`}
         propertyCardData = {property}

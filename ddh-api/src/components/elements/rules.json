@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_elements_rules",
+  "info": {
+    "displayName": "Rules",
+    "icon": "align-justify"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    }
+  }
+}

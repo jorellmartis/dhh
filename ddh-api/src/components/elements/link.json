@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_elements_links",
+  "info": {
+    "displayName": "Link",
+    "icon": "external-link-alt",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "pages_sitemap": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::pages-sitemap.pages-sitemap"
+    },
+    "urlName": {
+      "type": "string"
+    },
+    "enableUrlName": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    }
+  }
+}

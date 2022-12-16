@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_webiste_blocks_property_description_s",
+  "info": {
+    "displayName": "Property Description ",
+    "icon": "sticky-note"
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "richtext"
+    }
+  }
+}

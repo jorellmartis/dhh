@@ -30,11 +30,26 @@ export interface PropertyCardType{
             }
         }
     }
+
+export interface FilterProp{
+    filterData:{
+        listBedrooms:{
+            data:Array<{
+                id: string
+                attributes:{
+                    __typename: string
+                    noOfBedrooms: number
+                    title: string
+                }
+            }>
+        }
+    }
+}
 export interface PropertyListType{
         __typename: string;
         title?: string;
         cardStyle: string;
-        Property?: Array<PropertyCardType>;
+        pagesProperties?: Array<PropertyCardType>;
     }
 export interface AllHomeBlocksType extends HomeBannerType, PropertyListType{
 }

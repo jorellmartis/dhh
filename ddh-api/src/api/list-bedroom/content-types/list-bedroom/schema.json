@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "list_bedrooms",
+  "info": {
+    "singularName": "list-bedroom",
+    "pluralName": "list-bedrooms",
+    "displayName": "List - Bedroom",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "noOfBedrooms": {
+      "type": "integer"
+    },
+    "pages_properties": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::pages-property.pages-property",
+      "mappedBy": "list_bedroom"
+    }
+  }
+}

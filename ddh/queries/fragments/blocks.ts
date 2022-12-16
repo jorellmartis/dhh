@@ -17,7 +17,7 @@ export const ComponentWebisteBlocksPropertyListing = `
   __typename
   title
   cardStyle
-  Property{
+  pagesProperties{
     pages_property{
       data{
         attributes{

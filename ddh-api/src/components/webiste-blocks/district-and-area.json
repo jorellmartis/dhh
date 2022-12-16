@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_webiste_blocks_district_and_areas",
+  "info": {
+    "displayName": "District and Area",
+    "icon": "map-marked-alt",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "nearbyAttractions": {
+      "type": "richtext"
+    }
+  }
+}

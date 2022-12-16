@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_webiste_blocks_facilities",
+  "info": {
+    "displayName": "Facilities",
+    "icon": "tools",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "facility": {
+      "displayName": "facility",
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.facility"
+    }
+  }
+}

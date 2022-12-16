@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_elements_facilities",
+  "info": {
+    "displayName": "facility",
+    "icon": "tools",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "facilityList": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::list-facility.list-facility"
+    }
+  }
+}

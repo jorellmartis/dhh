@@ -20,6 +20,7 @@ margin-right: 2%;
 `
 
 const PropertyCard = ({propertyCardData}: PropertyCardCompType) => {
+  console.log(propertyCardData,"proproprop")
   return (
     <PropertyCardElem>
     <div>

@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_elements_swiper_sliders",
+  "info": {
+    "displayName": "swiper-slider",
+    "icon": "sliders-h"
+  },
+  "options": {},
+  "attributes": {
+    "swiperImg": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

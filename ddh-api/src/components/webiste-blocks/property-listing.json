@@ -2,14 +2,15 @@
   "collectionName": "components_webiste_blocks_property_listings",
   "info": {
     "displayName": "Property Listing",
-    "icon": "archway"
+    "icon": "archway",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "title": {
       "type": "string"
     },
-    "Property": {
+    "pagesProperties": {
       "type": "component",
       "repeatable": true,
       "component": "elements.property-card"

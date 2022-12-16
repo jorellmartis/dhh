@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_webiste_blocks_extra_facilities",
+  "info": {
+    "displayName": "Extra Facility"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "extraFacility": {
+      "displayName": "Extra Facility",
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.extra-facility"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_elements_extra_facilities",
+  "info": {
+    "displayName": "Extra Facility",
+    "icon": "money-check-alt",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "facilityExtraList": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::list-extra-facility.list-extra-facility"
+    },
+    "price": {
+      "type": "integer"
+    }
+  }
+}

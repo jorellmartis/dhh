@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "list_facilities",
+  "info": {
+    "singularName": "list-facility",
+    "pluralName": "list-facilities",
+    "displayName": "List - Facility"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "facilityIcon": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "list_extra_facilities",
+  "info": {
+    "singularName": "list-extra-facility",
+    "pluralName": "list-extra-facilities",
+    "displayName": "List - Extra Facility"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "facilityIco": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

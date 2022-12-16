@@ -29,8 +29,14 @@ import { locationFrag } from "./fragments/locationFragment"
 // }
 // `
 export const GET_PROPERTY_LISTING = gql`
-query GET_PROPERTY_LISTING{
-    pagesProperties{
+query GET_PROPERTY_LISTING($bedroom: ID){
+    pagesProperties(filters:{
+        list_bedroom:{
+            id:{
+                eq: $bedroom
+            }
+        }
+    }){
         data{
         attributes{
             slug
@@ -41,5 +47,18 @@ query GET_PROPERTY_LISTING{
         }
     }
 }
-
+`
+export const GET_FILTERS = gql`
+query GET_FILTERS {
+    listBedrooms{
+        data{
+        id
+            attributes{
+                __typename
+                title
+                noOfBedrooms
+            }
+        }
+    }
+}
 `

@@ -37,7 +37,8 @@
       "type": "dynamiczone",
       "components": [
         "webiste-blocks.home-banner",
-        "webiste-blocks.property-listing"
+        "webiste-blocks.property-listing",
+        "webiste-blocks.city-card"
       ]
     }
   }
