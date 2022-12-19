@@ -26,7 +26,10 @@ const PropertyListing = ({propertyListingData}: PropertyListCompType) => {
       {propertyListingData?.pagesProperties?.map((property ,index) =>(
         <PropertyCard 
         key={`property-id-${new Date().getTime}-${index}`}
-        propertyCardData = {property}
+        propertyCardData = {{
+          ...property,
+          isBlock: true
+        }}
         />
       ))}
 

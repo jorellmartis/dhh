@@ -78,7 +78,7 @@ useEffect(() => {
     <div style={{padding:'20px 36px', maxWidth:'1440px', margin:'auto'}}>
     <PropertyListingBlock>
       {propertyList?.pagesProperties?.data?.map((property ,index) =>(
-        <Link href={`properties/${property?.attributes?.slug}`}>
+        <Link style={{display:'contents'}} href={`properties/${property?.attributes?.slug}`}>
         <PropertyCard 
         key={`property-id-${new Date().getTime}-${index}`}
         propertyCardData = {{
