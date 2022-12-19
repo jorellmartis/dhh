@@ -29,11 +29,16 @@ import { locationFrag } from "./fragments/locationFragment"
 // }
 // `
 export const GET_PROPERTY_LISTING = gql`
-query GET_PROPERTY_LISTING($bedroom: ID){
+query GET_PROPERTY_LISTING($bedroom: ID, $guest: ID){
     pagesProperties(filters:{
         list_bedroom:{
             id:{
                 eq: $bedroom
+            }
+        },
+        guest:{
+            id:{
+                eq: $guest
             }
         }
     }){
@@ -43,6 +48,7 @@ query GET_PROPERTY_LISTING($bedroom: ID){
             title
             imgThumb{${imageFragment}}
             Location{${locationFrag}}
+            price
         }
         }
     }
@@ -52,11 +58,21 @@ export const GET_FILTERS = gql`
 query GET_FILTERS {
     listBedrooms{
         data{
-        id
+            id
             attributes{
                 __typename
                 title
                 noOfBedrooms
+            }
+        }
+    }
+    listGuests{
+        data{
+            id
+            attributes{
+            __typename
+            title
+            noOfGuest
             }
         }
     }

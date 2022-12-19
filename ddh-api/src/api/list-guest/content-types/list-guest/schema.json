@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "list_guests",
+  "info": {
+    "singularName": "list-guest",
+    "pluralName": "list-guests",
+    "displayName": "List - Guest"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "noOfGuest": {
+      "type": "integer"
+    },
+    "pages_properties": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::pages-property.pages-property",
+      "mappedBy": "guest"
+    }
+  }
+}

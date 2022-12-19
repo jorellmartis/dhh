@@ -4,10 +4,10 @@ import PropertyCard from '../elements/cards/PropertyCard'
 import {PropertyListType} from '../../typings/typings'
 
 type PropertyListCompType = {
-  propertyListingData? : PropertyListType & boolean| null 
+  propertyListingData? : PropertyListType | null 
 }
 
-const PropertyListingBlock = styled.div`
+export const PropertyListingBlock = styled.div`
     display: flex;
     overflow-x: hidden;
     flex-direction: row;
@@ -29,8 +29,6 @@ const PropertyListing = ({propertyListingData}: PropertyListCompType) => {
         propertyCardData = {property}
         />
       ))}
-        <PropertyCard/>
-        <PropertyCard/>
 
     </PropertyListingBlock>
     </div>

@@ -1,25 +1,40 @@
 import React,{useState, useEffect} from 'react'
-import FullBlockRender from '../components/FullBlockRenderer'
-import PropertyListing from '../components/listings/PropertyListing'
-import {stackData} from '../helpers/commonReq'
+import {PropertyListingBlock} from '../components/listings/PropertyListing'
 import apolloClient from '../helpers/apollo'
-import { FilterProp } from '../typings/typings'
+import { FilterProp, PropertyCardType } from '../typings/typings'
 import { GET_PROPERTY_LISTING, GET_FILTERS } from '../queries/propertyPage'
 import { RoomFilters, FilterMenu } from "../styles/reusable/FlilterMenu";
+import PropertyCard from '../components/elements/cards/PropertyCard'
+import Link from 'next/link'
 
 
-
+type propertyPageData = {
+  pagesProperties:{
+    data:Array<{
+      attributes: PropertyCardType
+    }>
+  }
+}
 const properties = ({filterData}:FilterProp) => {
   console.log(filterData,"==>filter")
-  const [propertyList, setPropertyList] = useState(null);
+  const [propertyList, setPropertyList] = useState<propertyPageData | null >(null);
   const [selectedBedroom, setselectedBedroom] = useState<string | null>(null);
+  const [selectedGuest, setSelectedGuest] = useState<string | null>(null);
+  const [selectedLocation, setSelectedLocation] = useState<string | null>(null)
+
   useEffect(() => {
     getListOfProperties();
   }, []);
   useEffect(() => {
     if(selectedBedroom)
     getListOfProperties();
+    console.log(propertyList,"fetched data")
 }, [selectedBedroom]);
+useEffect(() => {
+  if(selectedGuest)
+  getListOfProperties();
+  console.log(propertyList,"fetched data")
+}, [selectedGuest]);
 
   const getListOfProperties = async () => {
     try {
@@ -27,9 +42,9 @@ const properties = ({filterData}:FilterProp) => {
         query: GET_PROPERTY_LISTING,
         variables: {
           ...(selectedBedroom ? {bedroom: selectedBedroom} : {}),
+          ...(selectedGuest ? {guest: selectedGuest} : {}),
         }
       });
-      console.log(data,"---___---")
       setPropertyList(data);
     } catch (error) {
       console.log(error);
@@ -41,49 +56,41 @@ const properties = ({filterData}:FilterProp) => {
     <FilterMenu>
       <RoomFilters>
         <ul>
-          {filterData?.listBedrooms?.data.map((filter , index) => (
-            <li key={`filter-data-${filter?.id}`}>
-            <input onChange={(e)=> setselectedBedroom(e.target.value)}  type="radio" value={filter?.id} name={filter?.attributes?.__typename} id={filter?.id} />
-            <label htmlFor={filter?.id}>{index == 0 ? filter?.attributes?.noOfBedrooms+" Bedroom": filter?.attributes?.noOfBedrooms}</label>
+          {filterData?.listBedrooms?.data?.map((bedroom , index) => (
+            <li key={`bedroom-data-${bedroom?.id}`}>
+            <input onChange={(e)=> setselectedBedroom(e.target.value)}  type="radio" value={bedroom?.id} name={bedroom?.attributes?.__typename} id={bedroom?.attributes?.title} />
+            <label htmlFor={bedroom?.attributes?.title}>{index == 0 ? bedroom?.attributes?.noOfBedrooms+" Bedroom": bedroom?.attributes?.noOfBedrooms}</label>
           </li>
           ))}
         </ul>
       </RoomFilters>
-      {/* <RoomFilters>
+      <RoomFilters>
       <ul>
-          <li>
-            <input type="radio"  name="guest-prop" id="guest1" />
-            <label onClick={(e) => console.log(e)} htmlFor="guest1">1 guest</label>
-          </li>
-          <li>
-            <input type="radio"  name="guest-prop" id="guest2" />
-            <label onClick={(e) => console.log(e)} htmlFor="guest2">2</label>
-          </li>
-          <li>
-            <input type="radio"  name="guest-prop" id="guest3" />
-            <label onClick={(e) => console.log(e)} htmlFor="guest3">3</label>
-          </li>
-          <li>
-            <input type="radio"  name="guest-prop" id="guest4" />
-            <label onClick={(e) => console.log(e)} htmlFor="guest4">4</label>
-          </li>
-          <li>
-            <input type="radio"  name="guest-prop" id="guest5" />
-            <label onClick={(e) => console.log(e)} htmlFor="guest5">5</label>
-          </li>
-          <li>
-            <input type="radio"  name="room-prop" id="guest6" />
-            <label onClick={(e) => console.log(e)} htmlFor="guest6">6</label>
-          </li>
-          <li>
-            <input type="radio"  name="room-prop" id="guest7" />
-            <label onClick={(e) => console.log(e)} htmlFor="guest7">7+</label>
-          </li>
-        </ul>
-      </RoomFilters> */}
+        {filterData?.listGuests?.data?.map((guest , index) => (
+        <li key={`filter-data-${guest?.id}`}>
+          <input type="radio" onChange={(e)=> setSelectedGuest(e.target.value)} value={guest?.id} name={guest?.attributes?.__typename} id={guest?.id} />
+          <label htmlFor={guest?.id}>{index == 0 ? guest?.attributes?.noOfGuest+" Guest": guest?.attributes?.noOfGuest}</label>
+        </li>
+        ))} 
+      </ul>
+      </RoomFilters>
     </FilterMenu>
-    <PropertyListing 
-    propertyListingData={propertyList}/>
+    <div style={{padding:'20px 36px', maxWidth:'1440px', margin:'auto'}}>
+    <PropertyListingBlock>
+      {propertyList?.pagesProperties?.data?.map((property ,index) =>(
+        <Link href={`properties/${property?.attributes?.slug}`}>
+        <PropertyCard 
+        key={`property-id-${new Date().getTime}-${index}`}
+        propertyCardData = {{
+          ...property,
+          isBlock: false
+        }}
+        />
+        </Link>
+      ))}
+
+    </PropertyListingBlock>
+    </div>
     </>
   )
 }

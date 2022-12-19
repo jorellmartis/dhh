@@ -19,17 +19,12 @@ export interface HomeBannerType {
         title?: string;
     }
 export interface PropertyCardType{
-        pages_property?:{
-            data?:{
-                attributes?:{
-                    Location?: LocationType;
-                    title: string;
-                    imgThumb: imageType;
-                    price: string;
-                }
-            }
-        }
-    }
+    Location?: LocationType;
+    title: string;
+    imgThumb: imageType;
+    price: string;  
+    slug: string         
+}
 
 export interface FilterProp{
     filterData:{
@@ -39,6 +34,16 @@ export interface FilterProp{
                 attributes:{
                     __typename: string
                     noOfBedrooms: number
+                    title: string
+                }
+            }>
+        }
+        listGuests:{
+            data:Array<{
+                id: string
+                attributes:{
+                    __typename: string
+                    noOfGuest: number
                     title: string
                 }
             }>

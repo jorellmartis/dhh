@@ -60,6 +60,12 @@
       "relation": "manyToOne",
       "target": "api::list-bedroom.list-bedroom",
       "inversedBy": "pages_properties"
+    },
+    "guest": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::list-guest.list-guest",
+      "inversedBy": "pages_properties"
     }
   }
 }
