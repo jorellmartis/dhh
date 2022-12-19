@@ -29,6 +29,11 @@ flex-direction: column;
 width: 22%;
 margin-bottom: 2%;
 margin-right: 2%;
+  span{
+    white-space: nowrap;
+    overflow: hidden ;
+    text-overflow: ellipsis;
+  }
 `
 
 const PropertyCard = ({propertyCardData}: PropertyCardCompType & PropertyCardPageType) => {
