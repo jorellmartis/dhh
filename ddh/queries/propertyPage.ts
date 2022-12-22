@@ -78,3 +78,52 @@ query GET_FILTERS {
     }
 }
 `
+export const GET_PROPERTY_SLUG = gql`
+query GET_PROPERTY_SLUG{
+    pagesProperties{
+        data{
+            attributes{
+                slug
+            }
+        }
+    }
+}
+`
+export const GET_PROPERTY_DETAIL= gql `
+query GET_PROPERTY_DETAIL($slug : String){
+    pagesProperties(filters:{
+        slug:{
+        eq: $slug
+        }
+    }){
+        data{
+        attributes{
+            title
+            Location{${locationFrag}}
+            list_bedroom{
+            data{
+                attributes{
+                title
+                }
+            }
+            }
+            guest{
+            data{
+                attributes{
+                title
+                }
+            }
+            }
+            blocks{
+            ${ComponentWebisteBlocksImageGallery}
+            ${ComponentWebisteBlocksPropertyDescription}
+            ${ComponentWebisteBlocksFacilities}
+            ${ComponentWebisteBlocksExtraFacility}
+            ${ComponentWebisteBlocksPropertyRules}
+            ${ComponentWebisteBlocksDistrictAndArea}
+            }
+        }
+        }
+    }
+    }
+    `

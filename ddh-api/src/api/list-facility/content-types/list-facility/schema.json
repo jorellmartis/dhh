@@ -4,7 +4,8 @@
   "info": {
     "singularName": "list-facility",
     "pluralName": "list-facilities",
-    "displayName": "List - Facility"
+    "displayName": "List - Facility",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -14,15 +15,16 @@
     "title": {
       "type": "string"
     },
-    "facilityIcon": {
+    "facilityIco": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     }
   }
 }

@@ -25,6 +25,15 @@ export interface PropertyCardType{
     price: string;  
     slug: string         
 }
+export interface SwiperProp{
+    swiper: Array<{
+        swiperImg: imageType
+    }>
+}
+
+export interface DetailDescProp{
+    description: string
+}
 
 export interface FilterProp{
     filterData:{
