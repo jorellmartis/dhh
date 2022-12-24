@@ -50,14 +50,6 @@ export const ComponentNavigationListOfLinks =`
 }
 `
 //PAGES PROPERTIES BLOCK
-export const ComponentWebisteBlocksImageGallery = `
-...on ComponentWebisteBlocksImageGallery{
-  __typename
-  swiper{
-    swiperImg{${imageFragment}}
-  }
-}
-`
 export const ComponentWebisteBlocksPropertyDescription = `
 ...on ComponentWebisteBlocksPropertyDescription{
   __typename

@@ -15,7 +15,7 @@ type propertyPageData = {
     }>
   }
 }
-const properties = ({filterData}:FilterProp) => {
+const Properties = ({filterData}:FilterProp) => {
   console.log(filterData,"==>filter")
   const [propertyList, setPropertyList] = useState<propertyPageData | null >(null);
   const [selectedBedroom, setselectedBedroom] = useState<string | null>(null);
@@ -78,7 +78,7 @@ useEffect(() => {
     <div style={{padding:'20px 36px', maxWidth:'1440px', margin:'auto'}}>
     <PropertyListingBlock>
       {propertyList?.pagesProperties?.data?.map((property ,index) =>(
-        <Link style={{display:'contents'}} href={`properties/${property?.attributes?.slug}`}>
+        <Link key={`link-${index}`} style={{display:'contents'}} href={`properties/${property?.attributes?.slug}`}>
         <PropertyCard 
         key={`property-id-${new Date().getTime}-${index}`}
         propertyCardData = {{
@@ -94,7 +94,7 @@ useEffect(() => {
     </>
   )
 }
-export default properties
+export default Properties
 
 export const getStaticProps = async() =>{
   let filterData = null;

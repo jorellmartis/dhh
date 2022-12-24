@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactMarkdown from 'react-markdown'
 import { DetailDescProp } from '../../../typings/typings'
 
 type compBlockData = {
@@ -7,7 +8,9 @@ type compBlockData = {
 const ComponentWebisteBlocksPropertyDescription = ({compBlockData}:compBlockData) => {
     console.log(compBlockData,"comp desc")
   return (
-    <div>{compBlockData?.description}</div>
+    <div>
+    <ReactMarkdown children={compBlockData?.description}/>
+    </div>
   )
 }
 

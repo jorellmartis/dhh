@@ -4,11 +4,7 @@ data{
     attributes{
       title
       facilityIco{
-        data{
-          attributes{
-            url
-          }
-        }
+        ${imageFragment}
       }
     }
   }

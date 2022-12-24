@@ -94,7 +94,7 @@ const Footer = () => {
             </ul>
         </FooterLinks>
         <FooterLinks>
-        <span>We're at</span>
+        <span>We&apos;re at</span>
         <ul>
             <li>Link 1</li>
         </ul>

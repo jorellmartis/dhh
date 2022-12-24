@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_webiste_blocks_media_galleries",
+  "info": {
+    "displayName": "mediaGallery",
+    "icon": "images"
+  },
+  "options": {},
+  "attributes": {
+    "swiper": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.swiper-slider"
+    }
+  }
+}

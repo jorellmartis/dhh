@@ -1,7 +1,7 @@
 import styled from "styled-components"
 export const SwiperBlock = styled.div`
     width: 100vw;
-    height: 40vh;
+    height: 54vh;
     position: relative;
     .swiper {
     width: 100%;

@@ -42,7 +42,6 @@
     "blocks": {
       "type": "dynamiczone",
       "components": [
-        "webiste-blocks.image-gallery",
         "webiste-blocks.property-description",
         "webiste-blocks.facilities",
         "webiste-blocks.extra-facility",
@@ -66,6 +65,12 @@
       "relation": "manyToOne",
       "target": "api::list-guest.list-guest",
       "inversedBy": "pages_properties"
+    },
+    "imgGallery": {
+      "displayName": "mediaGallery",
+      "type": "component",
+      "repeatable": false,
+      "component": "webiste-blocks.media-gallery"
     }
   }
 }

@@ -1,4 +1,3 @@
-import { Pacifico } from '@next/font/google'
 import styled, { css } from "styled-components";
 
 // const pacifico = Pacifico({

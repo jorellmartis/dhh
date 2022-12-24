@@ -25,6 +25,8 @@ export interface PropertyCardType{
     price: string;  
     slug: string         
 }
+
+//Property Detail Typings
 export interface SwiperProp{
     swiper: Array<{
         swiperImg: imageType
@@ -33,6 +35,30 @@ export interface SwiperProp{
 
 export interface DetailDescProp{
     description: string
+}
+
+export interface FacilityProp{
+    title: string
+    facility: Array<{
+        facilityList:{
+            data:{
+                attributes:{
+                    facilityIco: imageType
+                    title: string
+                }
+            }
+        }
+    }>
+}
+export interface PropRulesProp{
+    propRules: Array<{
+        title: string
+    }>
+}
+export interface DistricAreaProp{
+    title: string
+    description: string
+    nearbyAttractions: string
 }
 
 export interface FilterProp{
@@ -62,7 +88,7 @@ export interface FilterProp{
 export interface PropertyListType{
         __typename: string;
         title?: string;
-        cardStyle: string;
+        cardStyle?: string;
         pagesProperties?: Array<PropertyCardType>;
     }
 export interface AllHomeBlocksType extends HomeBannerType, PropertyListType{
@@ -79,6 +105,25 @@ export type PageDataProp = {
     }
 }
 
+//property detail page props
+export type PropertyDetailProp = {
+    pageData: {
+        title: string;
+        Location: LocationType
+        // guest: 
+        blocks: Array<AllPropDetailBlock>
+        imgGallery: SwiperProp 
+        // list_bedroom: 
+    }
+    // headerData: {
+    // blocks: AllStackBlocks
+    // }
+}
+
+export interface AllPropDetailBlock extends DistricAreaProp, PropRulesProp, FacilityProp, DetailDescProp, SwiperProp {
+}
+
+//Stack Typings
 export interface ListOfLinkType{
     listOfLinks: Array<ListofLinkCompType>
 }

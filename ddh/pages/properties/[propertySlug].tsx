@@ -1,13 +1,58 @@
 import React from 'react'
+import SwiperComp from '../../components/elements/SwiperComp'
 import FullBlockRender from '../../components/FullBlockRenderer'
 import apolloClient from '../../helpers/apollo'
 import { GET_PROPERTY_DETAIL, GET_PROPERTY_SLUG } from '../../queries/propertyPage'
+import { PropertyDetailProp } from '../../typings/typings'
+import styled from 'styled-components'
+const PageHeading = styled.div`
+${(props) => props.theme.wrapperGlob.custom(4,0)}
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: auto;
+  span{
 
-const PropertyDetialPage = ({pageData}) => {
+  }
+  h1{
+    line-height: 1;
+    font-weight: 900;
+    letter-spacing: -.4px;
+    font-size: 2.75rem;
+  }
+  ul{
+    display: flex;
+    li{
+      margin-right: 2%;
+    }
+  }
+
+`
+const PropertyDetialPage = ({pageData}: PropertyDetailProp) => {
   console.log(pageData,"why empty")
   return (
     <>
+    <SwiperComp swiperData= {pageData?.imgGallery}/>
+    <div style={{padding: "0% 38% 0% 10%"}}>
+    <PageHeading>
+      <div>
+        <span>1 bedroom</span>
+        <h1>{pageData?.title}</h1>
+        <p>{pageData?.Location?.data?.attributes?.location}</p>
+      </div>
+      <div>
+        {/* <span>{pageData?.}</span> */}
+        <ul>
+          <li>1 bedroom</li>
+          <li>1 guests</li>
+          <li>3 bedroom</li>
+          <li>1 bed</li>
+        </ul>
+      </div>
+    </PageHeading>
+    
     <FullBlockRender blocks={pageData?.blocks}/>
+    </div>
     </>
   )
 }
