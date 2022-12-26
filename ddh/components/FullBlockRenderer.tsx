@@ -9,7 +9,7 @@ import ComponentWebisteBlocksDistrictAndArea from "./blocks/propertydetail/Compo
 
 
 type AllComponentBlockType = {
-    blocks: Array<AllHomeBlocksType> & Array<AllPropDetailBlock>
+    blocks: Array<AllHomeBlocksType> | Array<AllPropDetailBlock>
 }
 
 const FullBlockRender  = ({blocks} :AllComponentBlockType ) => {

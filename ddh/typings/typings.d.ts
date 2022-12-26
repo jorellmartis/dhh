@@ -60,28 +60,30 @@ export interface DistricAreaProp{
     description: string
     nearbyAttractions: string
 }
+interface BedroomProp{
+        id?:string
+        attributes:{
+            __typename?: string
+            noOfBedrooms?: number
+            title: string
+        }
+}
 
+interface GuestProp{
+        id?:string
+        attributes:{
+            __typename?: string
+            noOfGuest?: number
+            title: string
+        }
+}
 export interface FilterProp{
     filterData:{
         listBedrooms:{
-            data:Array<{
-                id: string
-                attributes:{
-                    __typename: string
-                    noOfBedrooms: number
-                    title: string
-                }
-            }>
+            data: Array<BedroomProp>
         }
-        listGuests:{
-            data:Array<{
-                id: string
-                attributes:{
-                    __typename: string
-                    noOfGuest: number
-                    title: string
-                }
-            }>
+        listGuests: {
+            data: Array<GuestProp>
         }
     }
 }
@@ -110,10 +112,14 @@ export type PropertyDetailProp = {
     pageData: {
         title: string;
         Location: LocationType
-        // guest: 
+        guest:{
+            data: GuestProp
+        } 
         blocks: Array<AllPropDetailBlock>
         imgGallery: SwiperProp 
-        // list_bedroom: 
+        list_bedroom: {
+            data: BedroomProp
+        }
     }
     // headerData: {
     // blocks: AllStackBlocks

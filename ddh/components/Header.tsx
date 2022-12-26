@@ -52,7 +52,7 @@ type context = {
 const Header = () => {
     const context : context = useContext(AppContext)
     return (
-        <header style={{position: 'absolute' , zIndex:'10', background:'#ffffff'}}>
+        <header style={{position: 'absolute' , zIndex:'10', top:'0', left:'0', background:'#ffffff'}}>
             <nav>
                 <StyledNav>
                 <Link href={'/'}>
@@ -64,7 +64,8 @@ const Header = () => {
                 <NavMenu>
                     <ul>
                     {context?.headerLinks![0]?.listOfLinks?.map((link , index) => (
-                        link?.enableUrlName ? <li key={link?.id}>{link?.urlName}</li> : <li key={link?.id}>{link?.pages_sitemap?.data?.attributes?.title}</li>
+                        // link?.pages_sitemap?.data?.attributes?.slug=="homepage" && (link?.pages_sitemap?.data?.attributes?.slug="#")
+                        link?.enableUrlName ? <Link key={`link-index-${index}`} href={link?.pages_sitemap?.data?.attributes?.slug}><li key={link?.id}>{link?.urlName}</li></Link> : <Link key={`link-index-${index}`} href={link?.pages_sitemap?.data?.attributes?.slug}><li key={link?.id}>{link?.pages_sitemap?.data?.attributes?.title}</li></Link>
                     ))}
                     </ul>
                 </NavMenu>

@@ -6,6 +6,8 @@ import { GET_PROPERTY_LISTING, GET_FILTERS } from '../queries/propertyPage'
 import { RoomFilters, FilterMenu } from "../styles/reusable/FlilterMenu";
 import PropertyCard from '../components/elements/cards/PropertyCard'
 import Link from 'next/link'
+import {stackData} from '../helpers/commonReq'
+
 
 
 type propertyPageData = {
@@ -107,12 +109,12 @@ export const getStaticProps = async() =>{
   catch (error) {
       console.log(error)
   }
-  // const commonData = await stackData();
+  const commonData = await stackData();
 
   return {
       props: {
           filterData,
-          // headerData: commonData?.headerData,
+          headerData: commonData?.headerData,
       },
   }
 }

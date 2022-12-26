@@ -5,6 +5,8 @@ import apolloClient from '../../helpers/apollo'
 import { GET_PROPERTY_DETAIL, GET_PROPERTY_SLUG } from '../../queries/propertyPage'
 import { PropertyDetailProp } from '../../typings/typings'
 import styled from 'styled-components'
+import {stackData} from '../../helpers/commonReq'
+
 const PageHeading = styled.div`
 ${(props) => props.theme.wrapperGlob.custom(4,0)}
   display: flex;
@@ -41,10 +43,10 @@ const PropertyDetialPage = ({pageData}: PropertyDetailProp) => {
         <p>{pageData?.Location?.data?.attributes?.location}</p>
       </div>
       <div>
-        {/* <span>{pageData?.}</span> */}
+        <span>{pageData?.list_bedroom?.data?.attributes?.title}</span>
         <ul>
-          <li>1 bedroom</li>
-          <li>1 guests</li>
+          <li>{pageData?.list_bedroom?.data?.attributes?.title}</li>
+          <li>{pageData?.guest?.data?.attributes?.title}</li>
           <li>3 bedroom</li>
           <li>1 bed</li>
         </ul>
@@ -99,9 +101,11 @@ export const getStaticProps = async ({ params }) => {
   } catch (error) {
     console.log(error);
   }
+  const commonData = await stackData();
   return {
     props: {
-      pageData
+      pageData,
+      headerData: commonData?.headerData,
     }, // will be passed to the page component as props
   };   
 };

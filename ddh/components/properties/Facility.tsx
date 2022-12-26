@@ -11,12 +11,14 @@ type facilityCompProp = {
 const Facility = ({facilityData}: facilityCompProp) => {
   return (
     <>
-    <h3>{facilityData?.title}</h3>
+    <h3 style={{marginTop:'2%'}}>{facilityData?.title}</h3>
     <TwoColumnList>
-    <ul>
+    <ul style={{width: '50%'}}>
         {facilityData?.facility?.map((facility, index) => (
             <li style={{listStyle:'none'}} key={`facility-${index}`}>
-                <img src={getStrapiMedia(facility?.facilityList?.data?.attributes?.facilityIco)}/>
+                <i style={{paddingRight:'15px'}}>
+                <img style={{width:'16px'}} src={getStrapiMedia(facility?.facilityList?.data?.attributes?.facilityIco)}/>
+                </i>
                 {facility?.facilityList?.data?.attributes?.title}
             </li>
         ))}

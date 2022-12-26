@@ -6,7 +6,7 @@ export const FilterMenu = styled.div`
     height: 4vh;
     gap: 0.8%;
     padding: 0% 14%;
-    margin-top: 15px;
+    margin-top: 5%;
 `
 
 export const RoomFilters = styled.div`
