@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "form_reservations",
+  "info": {
+    "singularName": "form-reservation",
+    "pluralName": "form-reservations",
+    "displayName": "Form - Reservation",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "startDate": {
+      "type": "date"
+    },
+    "endDate": {
+      "type": "date"
+    },
+    "pages_property": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::pages-property.pages-property",
+      "inversedBy": "form_reservations"
+    }
+  }
+}

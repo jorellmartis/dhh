@@ -11,6 +11,7 @@
   "dependencies": {
     "@apollo/client": "^3.7.2",
     "@next/font": "^13.0.6",
+    "@sentisso/react-modern-calendar-datepicker": "^3.1.9",
     "@types/node": "18.11.11",
     "@types/react": "18.0.26",
     "@types/react-dom": "18.0.9",

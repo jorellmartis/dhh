@@ -6,12 +6,19 @@ import { GET_PROPERTY_DETAIL, GET_PROPERTY_SLUG } from '../../queries/propertyPa
 import { PropertyDetailProp } from '../../typings/typings'
 import styled from 'styled-components'
 import {stackData} from '../../helpers/commonReq'
+import ReserveProp from '../../components/properties/ReserveProp'
+import PropRules from '../../components/properties/PropRules'
 
+const DetailBlock = styled.div`
+  display: flex;
+  width: 100%;
+${(props) => props.theme.wrapperGlob.custom(0,19) }
+`
 const PageHeading = styled.div`
 ${(props) => props.theme.wrapperGlob.custom(4,0)}
   display: flex;
   flex-direction: column;
-  width: 100vw;
+  width: 100%;
   height: auto;
   span{
 
@@ -25,17 +32,18 @@ ${(props) => props.theme.wrapperGlob.custom(4,0)}
   ul{
     display: flex;
     li{
-      margin-right: 2%;
+      margin-right: 6%;
     }
   }
 
 `
-const PropertyDetialPage = ({pageData}: PropertyDetailProp) => {
+const PropertyDetialPage = ({pageData, pageID}: PropertyDetailProp) => {
   console.log(pageData,"why empty")
   return (
     <>
     <SwiperComp swiperData= {pageData?.imgGallery}/>
-    <div style={{padding: "0% 38% 0% 10%"}}>
+    <DetailBlock>
+    <div style={{width:'50%'}}>
     <PageHeading>
       <div>
         <span>1 bedroom</span>
@@ -52,9 +60,12 @@ const PropertyDetialPage = ({pageData}: PropertyDetailProp) => {
         </ul>
       </div>
     </PageHeading>
-    
     <FullBlockRender blocks={pageData?.blocks}/>
     </div>
+    <ReserveProp
+    pageID = {pageID}
+    />
+    </DetailBlock>
     </>
   )
 }
@@ -67,7 +78,7 @@ export const getStaticPaths = async () => {
     query: GET_PROPERTY_SLUG,
     fetchPolicy: "no-cache"
   })
-  data?.pagesProperties?.data?.map((property) => {
+  data?.pagesProperties?.data?.map((property: any) => {
     paths = [
       ...paths,
       {
@@ -83,11 +94,16 @@ export const getStaticPaths = async () => {
   };
 }
 
+type params= {
+  params:{
+    propertySlug: string
+  }
+}
 
-export const getStaticProps = async ({ params }) => {
+export const getStaticProps = async ({ params}:params) => {
   console.log(params);
   let pageData = null;
-
+  let pageID = null;
   try {
     const { data } = await apolloClient.query({
       query: GET_PROPERTY_DETAIL,
@@ -97,6 +113,7 @@ export const getStaticProps = async ({ params }) => {
       },
     });
     console.log(data,"data")
+    pageID = data?.pagesProperties.data[0].id
     pageData = data?.pagesProperties.data[0].attributes
   } catch (error) {
     console.log(error);
@@ -104,6 +121,7 @@ export const getStaticProps = async ({ params }) => {
   const commonData = await stackData();
   return {
     props: {
+      pageID,
       pageData,
       headerData: commonData?.headerData,
     }, // will be passed to the page component as props

@@ -72,6 +72,7 @@ query GET_PROPERTY_DETAIL($slug : String){
         }
     }){
         data{
+        id
         attributes{
             title
             Location{${locationFrag}}

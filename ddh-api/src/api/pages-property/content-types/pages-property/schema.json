@@ -71,6 +71,12 @@
       "type": "component",
       "repeatable": false,
       "component": "webiste-blocks.media-gallery"
+    },
+    "form_reservations": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::form-reservation.form-reservation",
+      "mappedBy": "pages_property"
     }
   }
 }

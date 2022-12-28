@@ -18,12 +18,10 @@ type propertyPageData = {
   }
 }
 const Properties = ({filterData}:FilterProp) => {
-  console.log(filterData,"==>filter")
   const [propertyList, setPropertyList] = useState<propertyPageData | null >(null);
   const [selectedBedroom, setselectedBedroom] = useState<string | null>(null);
   const [selectedGuest, setSelectedGuest] = useState<string | null>(null);
   const [selectedLocation, setSelectedLocation] = useState<string | null>(null)
-
   useEffect(() => {
     getListOfProperties();
   }, []);

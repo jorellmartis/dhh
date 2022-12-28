@@ -121,6 +121,9 @@ export type PropertyDetailProp = {
             data: BedroomProp
         }
     }
+    pageID:{
+        id: number
+    }
     // headerData: {
     // blocks: AllStackBlocks
     // }

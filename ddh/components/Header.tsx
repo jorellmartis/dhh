@@ -64,7 +64,7 @@ const Header = () => {
                 <NavMenu>
                     <ul>
                     {context?.headerLinks![0]?.listOfLinks?.map((link , index) => (
-                        // link?.pages_sitemap?.data?.attributes?.slug=="homepage" && (link?.pages_sitemap?.data?.attributes?.slug="#")
+                        // link?.pages_sitemap?.data?.attributes?.slug=="homepage" && {link?.pages_sitemap?.data?.attributes?.slug="#"}
                         link?.enableUrlName ? <Link key={`link-index-${index}`} href={link?.pages_sitemap?.data?.attributes?.slug}><li key={link?.id}>{link?.urlName}</li></Link> : <Link key={`link-index-${index}`} href={link?.pages_sitemap?.data?.attributes?.slug}><li key={link?.id}>{link?.pages_sitemap?.data?.attributes?.title}</li></Link>
                     ))}
                     </ul>
