@@ -6,6 +6,7 @@ import ComponentWebisteBlocksPropertyDescription from "./blocks/propertydetail/C
 import ComponentWebisteBlocksFacilities from "./blocks/propertydetail/ComponentWebisteBlocksFacilities";
 import ComponentWebisteBlocksPropertyRules from "./blocks/propertydetail/ComponentWebisteBlocksPropertyRules";
 import ComponentWebisteBlocksDistrictAndArea from "./blocks/propertydetail/ComponentWebisteBlocksDistrictAndArea";
+import ComponentWebisteBlocksCityCard from "./blocks/homepage/ComponentWebisteBlocksCityCard";
 
 
 type AllComponentBlockType = {
@@ -27,6 +28,13 @@ const FullBlockRender  = ({blocks} :AllComponentBlockType ) => {
                 compBlockData = {block}
                 key = {`section-block-${index}`}
                 />
+                break;
+                
+            case "ComponentWebisteBlocksCityCard":
+            return <ComponentWebisteBlocksCityCard 
+            compBlockData = {block}
+            key = {`section-block-${index}`}
+            />
                 break;
             //property detail page blocks
             case "ComponentWebisteBlocksPropertyDescription":

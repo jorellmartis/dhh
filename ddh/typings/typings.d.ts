@@ -93,6 +93,16 @@ export interface PropertyListType{
         cardStyle?: string;
         pagesProperties?: Array<PropertyCardType>;
     }
+
+export interface CityCardProp{
+    title: string
+    cityCard: Array<{
+        title: string
+        description: string
+        city: LocationType
+        imgThumb: imageType
+    }>
+}
 export interface AllHomeBlocksType extends HomeBannerType, PropertyListType{
 }
 
@@ -150,7 +160,7 @@ export interface ListofLinkCompType{
         }   
 }
 export interface CompBlockData {
-        compBlockData?:  HomeBannerType & PropertyListType
+        compBlockData?:  HomeBannerType & PropertyListType 
     }
 export interface AllStackBlocks extends Array<ListOfLinkType>{}
 

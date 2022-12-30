@@ -1,8 +1,9 @@
-import React from 'react'
+import React, {useLayoutEffect, useRef} from 'react'
 import styled from 'styled-components'
 import { Typography } from '../Typography'
 import { HomeBannerType } from '../../typings/typings'
 import { getStrapiMedia } from '../../helpers/strapi'
+import { gsap } from "gsap";
 
 type HomeBannerCompType = {
     homeBannerData? : HomeBannerType
@@ -43,12 +44,26 @@ const BannerSearchItem = styled.div`
 `
 
 const HomeBanner = ({homeBannerData}: HomeBannerCompType ) => {
+    let bannerTextAnim = useRef<HTMLDivElement | null>(null)
+    useLayoutEffect(() => {
+        gsap.fromTo(
+                bannerTextAnim.current,
+                {
+                scale: 1.3,
+                },
+                {
+                scale: 1,
+                duration: 3
+                }
+            
+            );
+    },[])
     return (
         <HomeBannerBlock>
             <video autoPlay muted loop style={{ width: '100%', height: '100%' }} src={getStrapiMedia(homeBannerData?.homePageImg)}/>
             <HomeBannerContent>
                 <Typography level={1} fontFamily='pacifico'>
-                    <h1>{homeBannerData?.title}</h1>
+                    <h1 ref={bannerTextAnim}>{homeBannerData?.title}</h1>
                 </Typography>
                 <BannerSearch>
                     <BannerSearchItem>

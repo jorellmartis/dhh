@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropertyCard from '../elements/cards/PropertyCard'
 import {PropertyListType} from '../../typings/typings'
+import { WrapperContainer } from '../../styles/reusable/WrapperContainer'
 
 type PropertyListCompType = {
   propertyListingData? : PropertyListType | null 
@@ -20,7 +21,7 @@ const PropertyListing = ({propertyListingData}: PropertyListCompType) => {
   console.log(propertyListingData,"==>Listing Data")
   return (
     <>
-    <div style={{padding:'20px 36px', maxWidth:'1440px', margin:'auto'}}>
+    <WrapperContainer>
     <h2>{propertyListingData?.title}</h2>
     <PropertyListingBlock>
       {propertyListingData?.pagesProperties?.map((property ,index) =>(
@@ -32,9 +33,8 @@ const PropertyListing = ({propertyListingData}: PropertyListCompType) => {
         }}
         />
       ))}
-
     </PropertyListingBlock>
-    </div>
+    </WrapperContainer>
     </>
   )
 }

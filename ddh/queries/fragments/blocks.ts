@@ -31,6 +31,18 @@ export const ComponentWebisteBlocksPropertyListing = `
   }
 }
 `
+export const ComponentWebisteBlocksCityCard = `
+...on ComponentWebisteBlocksCityCard{
+  title
+  __typename
+  cityCard{
+    city{${locationFrag}}
+    title
+    description
+    imgThumb{${imageFragment}}
+  }
+}
+`
 export const ComponentNavigationListOfLinks =`
 ...on ComponentNavigationListOfLinks{
   __typename

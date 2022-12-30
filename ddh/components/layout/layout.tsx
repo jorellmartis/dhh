@@ -8,7 +8,7 @@ const LayoutMain = ({ children }: { children: ReactElement}) => {
     <main>
     {children}
     </main>
-    {/* <Footer/> */}
+    <Footer/>
     </>
   )
 }

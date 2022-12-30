@@ -9,25 +9,26 @@ const StyledFooter = styled.div`
     min-height: 200px;
     flex-direction: column;
     position: relative;
+    background: #f8f8f9;
 `
 const UpperFooter = styled.div`
     display: flex;
     width: 100%;
     height: 50%;
-    background: red;
 `
 const LowerFooter = styled.div`
     display: flex;
     width: 100%;
     height: 50%;
-    background: blue;
+    ul{
+        display: flex;
+    }
 `
 const FooterLogo = styled.div`
     display: flex;
     flex-direction: column;
     height: 100%;
     width: 10%;
-    background: pink;
     align-items: center;
     justify-content: center;
 `
@@ -120,7 +121,10 @@ const Footer = () => {
         </FooterLinks>
     </UpperFooter>
     <LowerFooter>
-    Footer Items
+    <ul>
+        <li>Copyright © 2022 Driven Holiday Homes™. All rights reserved.</li>
+        <li>Privacy Policy</li>
+    </ul>
     </LowerFooter>
     </StyledFooter>
     </footer>
