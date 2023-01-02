@@ -1,12 +1,12 @@
 import React,{useState, useEffect} from 'react'
-import {PropertyListingBlock} from '../components/listings/PropertyListing'
-import apolloClient from '../helpers/apollo'
-import { FilterProp, PropertyCardType } from '../typings/typings'
-import { GET_PROPERTY_LISTING, GET_FILTERS } from '../queries/propertyPage'
-import { RoomFilters, FilterMenu } from "../styles/reusable/FlilterMenu";
-import PropertyCard from '../components/elements/cards/PropertyCard'
+import {PropertyListingBlock} from '../../components/listings/PropertyListing'
+import apolloClient from '../../helpers/apollo'
+import { FilterProp, PropertyCardType } from '../../typings/typings'
+import { GET_PROPERTY_LISTING, GET_FILTERS } from '../../queries/propertyPage'
+import { RoomFilters, FilterMenu } from "../../styles/reusable/FlilterMenu";
+import PropertyCard from '../../components/elements/cards/PropertyCard'
 import Link from 'next/link'
-import {stackData} from '../helpers/commonReq'
+import {stackData} from '../../helpers/commonReq'
 
 
 

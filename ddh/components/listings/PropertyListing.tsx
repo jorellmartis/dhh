@@ -19,17 +19,19 @@ export const PropertyListingBlock = styled.div`
 `
 const PropertyListing = ({propertyListingData}: PropertyListCompType) => {
   console.log(propertyListingData,"==>Listing Data")
+  const styleType = propertyListingData?.cardStyle
   return (
     <>
     <WrapperContainer>
     <h2>{propertyListingData?.title}</h2>
     <PropertyListingBlock>
       {propertyListingData?.pagesProperties?.map((property ,index) =>(
-        <PropertyCard 
+        <PropertyCard
         key={`property-id-${new Date().getTime}-${index}`}
         propertyCardData = {{
           ...property,
-          isBlock: true
+          isBlock: true,
+          styleType
         }}
         />
       ))}

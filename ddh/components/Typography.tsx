@@ -5,7 +5,7 @@ import styled, { css } from "styled-components";
 //     style: ['normal', 'normal'],
 //     })
 interface Props {
-    level?:  1 | 2 | 3 | 4 | 5 | string
+    level?:  1 | 2 | 3 | 4 | 5 | "paramain" | "subHeader2"
     fontFamily?: 'pacifico' | 'primary' | 'secondary'
 }
 
@@ -52,13 +52,15 @@ ${({level}) => {
         font-size: 23px;
         color: whitesmoke;
         `
-        // case "secondary-paragraph":
-        // return css`
-        // font-weight: 500;
-        // font-size: 33px;
-        // line-height: 1;
-        // letter-spacing: -0.06345px;
-        // `
+        case "subHeader2":
+        return css`
+        font-family: ui-sans-serif!important;
+        font-weight: 600;
+        letter-spacing: 0;
+        line-height: 1.1875;
+        color: #000;
+        font-size: 1rem;
+        `
         default:
             break;
     }

@@ -8,7 +8,6 @@ const StyledFooter = styled.div`
     height: 200px;
     min-height: 200px;
     flex-direction: column;
-    position: relative;
     background: #f8f8f9;
 `
 const UpperFooter = styled.div`
@@ -21,7 +20,12 @@ const LowerFooter = styled.div`
     width: 100%;
     height: 50%;
     ul{
+        width: 100%;
         display: flex;
+        padding-top: 2%;
+        li{
+            margin-right: 10%;
+        }
     }
 `
 const FooterLogo = styled.div`

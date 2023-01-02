@@ -5,13 +5,24 @@ import DatePicker,{DayValue} from '@sentisso/react-modern-calendar-datepicker';
 import { CREATE_RESERV } from '../../queries/forms';
 import apolloClient from '../../helpers/apollo'
 
-
+const FormBlock = styled.div`
+    margin-left: 20px;
+    margin-top: -20px;
+    z-index: 2;
+    background: white;
+    width: 30%;
+`
 const FormContainer = styled.div`
   width: 100%;
   box-shadow: 0 6px 12px 0 rgb(0 0 0 / 4%), 0 1px 45px 0 rgb(0 0 0 / 8%);
   form{
     display: flex;
     flex-direction: column;
+    padding: 5% 10%;
+    .DatePicker{
+      margin-bottom: 10px;
+      z-index: 3;
+    }
   }
 `
 type pageID ={
@@ -42,7 +53,7 @@ const ReserveProp = ({pageID}: pageID) => {
     });
   }
   return (
-    <div style={{width:'50%'}}>
+    <FormBlock>
       <FormContainer>
         <form onSubmit={handleFormSubmission}>
           <h3>Book this apartment</h3>
@@ -67,7 +78,7 @@ const ReserveProp = ({pageID}: pageID) => {
           <label htmlFor='endDate'></label><br/> */}
         </form>
       </FormContainer>
-    </div>
+    </FormBlock>
   )
 }
 

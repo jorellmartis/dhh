@@ -1,7 +1,7 @@
 import styled from "styled-components"
 export const SwiperBlock = styled.div`
     width: 100vw;
-    height: 54vh;
+    height: 63vh;
     position: relative;
     .swiper {
     width: 100%;
@@ -14,8 +14,8 @@ export const SwiperBlock = styled.div`
     &:nth-child(2){
         padding: 0% 5%;
         position: absolute;
-        width: 50%;
-        height: 20%;
+        width: 40vw;
+        height: 5vw;
         bottom: 4%;
         left: 0;
         img{
