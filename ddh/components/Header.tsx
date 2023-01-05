@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import index from '../pages'
 import { AppContext } from '../pages/_app'
 import {ListOfLinkType} from '../typings/typings'
+import {useRouter} from 'next/router';
 
 
 
@@ -50,7 +51,11 @@ type context = {
 }
 
 const Header = () => {
+    const router = useRouter()
     const context : context = useContext(AppContext)
+    {router.pathname=='/' ? console.log("index index"): {} }
+
+
     return (
         <header style={{position: 'absolute' , zIndex:'10', top:'0', left:'0', background:'#ffffff'}}>
             <nav>
@@ -58,7 +63,9 @@ const Header = () => {
                 <Link href={'/'}>
                     <Logo>
                         <img src="/logo.svg" alt="" width={48} height={34} />
-                        <h6>Driven Holiday Homes</h6>
+                        {router.pathname=='/' ? <h6>Driven Holiday Homes</h6> 
+                        :
+                        <div>search bar</div> }
                     </Logo>
                 </Link>
                 <NavMenu>

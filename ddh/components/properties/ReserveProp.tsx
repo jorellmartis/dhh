@@ -11,6 +11,9 @@ const FormBlock = styled.div`
     z-index: 2;
     background: white;
     width: 30%;
+    top: 0;
+    position: sticky;
+    height: fit-content;
 `
 const FormContainer = styled.div`
   width: 100%;

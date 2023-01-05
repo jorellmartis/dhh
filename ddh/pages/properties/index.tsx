@@ -7,6 +7,9 @@ import { RoomFilters, FilterMenu } from "../../styles/reusable/FlilterMenu";
 import PropertyCard from '../../components/elements/cards/PropertyCard'
 import Link from 'next/link'
 import {stackData} from '../../helpers/commonReq'
+import type { MenuProps } from 'antd';
+import { Dropdown, Space, Typography } from 'antd';
+import { DownOutlined } from '@ant-design/icons';
 
 
 
@@ -18,24 +21,43 @@ type propertyPageData = {
   }
 }
 const Properties = ({filterData}:FilterProp) => {
+  console.log(filterData,"filter ===>")
+  //all states 
   const [propertyList, setPropertyList] = useState<propertyPageData | null >(null);
   const [selectedBedroom, setselectedBedroom] = useState<string | null>(null);
   const [selectedGuest, setSelectedGuest] = useState<string | null>(null);
-  const [selectedLocation, setSelectedLocation] = useState<string | null>(null)
+  const [selectedLocation, setSelectedLocation] = useState<string | null >(null)  
+  //dropdown antd menu items   
+  const items: MenuProps['items'] | any = filterData?.listLocations?.data?.map((location, index) => {
+      return {
+        key: location?.id,
+        label: (
+          <>
+          <input onChange={(e) => setSelectedLocation(e.target.value)} type="checkbox" value={location?.id} id={location?.id}/>
+          <label htmlFor={location?.id}>{location?.attributes?.location}</label>
+          </>
+        ),
+      }
+  })
+  console.log("test", items);
+  
   useEffect(() => {
     getListOfProperties();
   }, []);
-  useEffect(() => {
-    if(selectedBedroom)
-    getListOfProperties();
-    console.log(propertyList,"fetched data")
-}, [selectedBedroom]);
-useEffect(() => {
-  if(selectedGuest)
-  getListOfProperties();
-  console.log(propertyList,"fetched data")
-}, [selectedGuest]);
 
+  useEffect(() => {
+    if(selectedBedroom || selectedGuest || selectedLocation)
+    getListOfProperties();
+}, [selectedBedroom, selectedGuest , selectedLocation]);
+// useEffect(() => {
+//   if(selectedGuest)
+//   getListOfProperties();
+// }, [selectedGuest]);
+// useEffect(() => {
+//   if(selectedLocation)
+//   getListOfProperties();
+//   console.log(propertyList,"fetched location data")
+// }, [selectedLocation]);
   const getListOfProperties = async () => {
     try {
       const { data } = await apolloClient.query({
@@ -43,6 +65,7 @@ useEffect(() => {
         variables: {
           ...(selectedBedroom ? {bedroom: selectedBedroom} : {}),
           ...(selectedGuest ? {guest: selectedGuest} : {}),
+          ...(selectedLocation ? {location: selectedLocation} : {}),
         }
       });
       setPropertyList(data);
@@ -74,6 +97,21 @@ useEffect(() => {
         ))} 
       </ul>
       </RoomFilters>
+      <Dropdown
+        menu={{
+          items,
+          selectable: true,
+          defaultSelectedKeys: ['3'],
+        }}
+      >
+        <Typography.Link>
+          <Space>
+            Location
+          <DownOutlined />
+          </Space>
+        </Typography.Link>
+      </Dropdown>
+      
     </FilterMenu>
     <div style={{padding:'20px 36px', maxWidth:'1440px', margin:'auto'}}>
     <PropertyListingBlock>

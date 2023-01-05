@@ -4,7 +4,7 @@ import { imageFragment } from "./fragments/imageFragment"
 import { locationFrag } from "./fragments/locationFragment"
 
 export const GET_PROPERTY_LISTING = gql`
-query GET_PROPERTY_LISTING($bedroom: ID, $guest: ID){
+query GET_PROPERTY_LISTING($bedroom: ID, $guest: ID, $location: ID){
     pagesProperties(filters:{
         list_bedroom:{
             id:{
@@ -14,6 +14,11 @@ query GET_PROPERTY_LISTING($bedroom: ID, $guest: ID){
         guest:{
             id:{
                 eq: $guest
+            }
+        }
+        Location:{
+            id:{
+                eq: $location
             }
         }
     }){
@@ -51,6 +56,15 @@ query GET_FILTERS {
             }
         }
     }
+    listLocations{
+        data{
+            id
+            attributes{
+            __typename
+            location
+            }
+        }
+}
 }
 `
 export const GET_PROPERTY_SLUG = gql`

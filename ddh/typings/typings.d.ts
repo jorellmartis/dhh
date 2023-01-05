@@ -69,6 +69,13 @@ interface BedroomProp{
         }
 }
 
+interface LocationProp{
+    id?:string
+    attributes:{
+        __typename?: string
+        location: string
+    }
+}
 interface GuestProp{
         id?:string
         attributes:{
@@ -84,6 +91,9 @@ export interface FilterProp{
         }
         listGuests: {
             data: Array<GuestProp>
+        }
+        listLocations:{
+            data: Array<LocationProp>
         }
     }
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useLayoutEffect} from 'react'
 import SwiperComp from '../../components/elements/SwiperComp'
 import FullBlockRender from '../../components/FullBlockRenderer'
 import apolloClient from '../../helpers/apollo'
@@ -39,6 +39,17 @@ ${(props) => props.theme.wrapperGlob.custom(4,0)}
 `
 const PropertyDetialPage = ({pageData, pageID}: PropertyDetailProp) => {
   console.log(pageData,"why empty")
+  useLayoutEffect(() => {
+    return () => {
+      showOverflow();
+      console.log("effect ran")
+    }
+    }, []);
+    const showOverflow = () =>{
+      let target = document.querySelector('body')
+      console.log(target)
+      document.querySelector('form')?.length ? target!.style.overflowX = "unset" : target!.style.overflowX = "hidden"
+    }
   return (
     <>
     <SwiperComp swiperData= {pageData?.imgGallery}/>
